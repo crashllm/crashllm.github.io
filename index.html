@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description"
+    content="We introduce LargeSceneModel, which utilizes two unposed and uncalibrated images as input, and reconstructs the explicit radiance field, encompassing geometry, appearance, and semantics in real-time.">
+  <meta property="og:title" content="Large Scene Model: Real-time Unposed Images to Semantic 3D" />
+  <meta property="og:description" content="Novel view synthesis via feed-forward 3D Gaussian inference from two images." />
+  <!-- <meta property="og:url" content="https://pixelsplat.github.io/" />
+  <meta property="og:image" content="https://pixelsplat.github.io/static/images/banner.png" /> -->
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:title" content="Large Scene Model: Real-time Unposed Images to Semantic 3D">
+  <meta name="twitter:description" content="Novel view synthesis via feed-forward 3D Gaussian inference from two images.">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <!-- <meta name="twitter:image" content="https://pixelsplat.github.io/static/images/banner.png"> -->
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="NeRF, novel view synthesis, 3D Gaussians">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Large Scene Model</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+
+  <link rel="stylesheet" href="static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <!-- <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script> -->
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<style>
+  .before,
+  .after {
+    margin: 0;
+  }
+
+  .summary-box {
+  background-color: #fdd28e; /* Light blue background */
+  /* border-left: 5px solid #2b8af7; Dark blue left border */
+  padding: 20px;
+  margin: 10px 0;
+  font-family: Arial, sans-serif;
+  border-radius: 5px; /* Rounds the corners */
+  border: 2px solid #FAFCB8; /* Fine orange border */
+  }
+
+  p {
+      margin: 0;
+      color: #333; /* Dark text for better readability */
+  }
+  .before figcaption,
+  .after figcaption {
+    background: #fff;
+    border: 1px solid #c0c0c0;
+    border-radius: 4px;
+    color: #2e3452;
+    opacity: 0.8;
+    padding: 4px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 70%;
+  }
+
+  .before figcaption {
+    left: 4px;
+  }
+
+  .after figcaption {
+    right: 4px;
+  }
+</style>
+
+
+<body>
+  <div class="container">
+    <!-- Title --> 
+    <h1 class="pt-5 title is-3 ">CrashLLM</h1>
+      <!-- <h1 class="pt-5 title"><span style="color: #ff7512;font-weight: bolder;">L</span>arge<span style="color: #ff7512;font-weight: bolder;">S</span>cene<span style="color: #ff7512;font-weight: bolder;">M</span>odel: Real-time Unposed Images to Semantic 3D</h1> -->
+
+    <!-- <div class="d-flex flex-row justify-content-center">
+      <a>Anonymous Authors</a>
+    </div> -->
+
+    <!-- Teaser -->
+    <!-- <div class="w-100 my-4">
+      <img src="static/images/teaser.png" class="img-fluid w-100 mt-2 mb-3" alt="comparison on ACID dataset" />
+      <div class="summary-box tldr mb-4">
+        <strong>TL;DR</strong>: LSM utilizes two unposed and uncalibrated images as input, and reconstructs the explicit radiance field, encompassing geometry, appearance, and semantics in real-time.
+      </div>
+    </div> -->
+
+
+
+    <!-- </section> -->
+    <!-- <div class="columns is-centered has-text-centered"> -->
+    <!-- Abstract -->
+    <!-- <h2 class="title is-3 has-text-centered"><span style="color: #f06d15 ;font-weight: bolder;">Abstract</span></h2>
+    <div class="content has-text-justified"> -->
+      <!-- <p> -->
+      <!-- </div><p class="mb-4"> -->
+        <!-- A classical problem in computer vision is to reconstruct and understand the 3D structure from a limited number of images to accurately interpret and export geometry, appearance, and semantics. Traditional approaches typically decompose this objective into multiple subtasks, involving several stages of complicated mapping among different data representations. For instance, dense reconstruction through Structure-from-Motion (SfM) requires transforming a set of multi-view images into key points and camera parameters before estimating structures. 3D understanding relies on a lengthy reconstruction pipeline before inputting into data- and task-specific neural networks. This paradigm can result in extensive processing times and substantial engineering efforts for processing each scene.
+        </p>
+        <br>
+        <p>
+        In this work, we introduce the Large Scene Model (LSM), a point-based representation that directly processes unposed RGB images into semantic 3D. This new model simultaneously infers geometry, appearance, and semantics within a scene, and synthesizes versatile label maps at novel views, all in a single feed-forward pass. To represent the scene, we employ a generic Transformer-based framework that integrates global geometry by pixel-aligned point maps. To facilitate scene attributes regression, we adopt local context aggregation with multi-scale fusion tailored for enhanced prediction accuracy. Addressing the scarcity of labeled 3D semantic data and enhancing scene manipulation capabilities via natural language, we incorporate a well-trained 2D model into a 3D consistent semantic feature field. An efficient decoder parameterizes a set of anisotropic Gaussians, enabling the rendering of scene attributes at novel views. Supervised end-to-end learning and comprehensive experiments on various tasks demonstrate that LSM can unify multiple 3D vision tasks. It achieves both real-time reconstruction and rendering speeds and outperforms state-of-the-art baselines.
+      </p> -->
+    
+
+    <!-- Method -->
+    <br>
+    <!-- <h2 class="title is-3 has-text-centered"><span style="color: #f06d15 ;font-weight: bolder;">Method Overview</span></h2> -->
+    
+    <div class="content has-text-justified">
+      <img src="static/images/fig1.png" class="img-fluid w-100 mt-2 mb-3" alt="comparison on ACID dataset" />
+      <!-- <p>
+        Our method utilizes input images from which pixel-aligned point maps are regressed using a generic Transformer. Point-based scene parameters are then predicted employing another Transformer that facilitates local context aggregation and hierarchical fusion. The model elevate 2D pre-trained feature to facilate consistent 3D feature field. It is supervised end-to-end, minimizing the loss function through comparisons against ground truth and rasterized feature maps on new views. During the inference stage, our approach is capable of predicting the scene representation without requiring camera parameters, enabling real-time semantic 3D reconstruction.<br> <br>
+      </p> -->
+      </div>
+
+
+    
+    <!-- Comparisons -->
+    <!-- <h2 class="title is-3 has-text-centered"><span style="color: #f06d15 ;font-weight: bolder;">Results</span></h2> -->
+    <br>
+    <div class="content has-text-justified">
+      <img src="static/images/fig2.jpg" class="img-fluid w-100 mt-2 mb-3" alt="comparison on ACID dataset" />
+      <!-- <p>
+        Our method utilizes input images from which pixel-aligned point maps are regressed using a generic Transformer. Point-based scene parameters are then predicted employing another Transformer that facilitates local context aggregation and hierarchical fusion. The model elevate 2D pre-trained feature to facilate consistent 3D feature field. It is supervised end-to-end, minimizing the loss function through comparisons against ground truth and rasterized feature maps on new views. During the inference stage, our approach is capable of predicting the scene representation without requiring camera parameters, enabling real-time semantic 3D reconstruction.<br> <br>
+      </p> -->
+      </div>
+
+    <!-- <div class="columns is-centered">
+      <div class="column">
+        <div class="columns is-centered">
+          <div class="column content">
+            <video id="matting-video" autoplay controls muted playsinline width="19%">
+              <source src="static/videos/689.mp4"
+              type="video/mp4">
+            </video>
+            <video id="matting-video" autoplay controls muted playsinline width="19%">
+              <source src="static/videos/705.mp4"
+              type="video/mp4">
+            </video>
+            <video id="matting-video" autoplay controls muted playsinline width="19%">
+              <source src="static/videos/714.mp4"
+              type="video/mp4">
+            </video>
+            <video id="matting-video" autoplay controls muted playsinline width="19%">
+              <source src="static/videos/754.mp4"
+              type="video/mp4">
+            </video>
+            <video id="matting-video" autoplay controls muted playsinline width="19%">
+              <source src="static/videos/755.mp4"
+              type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- <div class="column">
+        <br>
+        <div class="columns is-centered">
+          <div class="column content">
+            <video id="matting-video" autoplay controls muted playsinline width="19%">
+              <source src="static/videos/761.mp4"
+              type="video/mp4">
+            </video>
+            <video id="matting-video" autoplay controls muted playsinline width="19%">
+              <source src="static/videos/766.mp4"
+              type="video/mp4">
+            </video>
+            <video id="matting-video" autoplay controls muted playsinline width="19%">
+              <source src="static/videos/781.mp4"
+              type="video/mp4">
+            </video>
+            <video id="matting-video" autoplay controls muted playsinline width="19%">
+              <source src="static/videos/791.mp4"
+              type="video/mp4">
+            </video>
+            <video id="matting-video" autoplay controls muted playsinline width="19%">
+              <source src="static/videos/797.mp4"
+              type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div> -->
+
+
+    <!-- Footer -->
+    <footer class="border-top mt-5 py-4">
+      <!-- This page's code uses elements from this <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+        target="_blank">Academic Project Page
+        Template</a>.
+    </footer>
+  </div> -->
+</body>
+
+</html>
